@@ -13,21 +13,21 @@ int main()
 	charArray.push_back('l');
 	charArray.push_back('0');
 
-	std::vector<char> valueArray;
-	valueArray.push_back('l');
-	valueArray.push_back('a');
+	char charValueOne = 'l';
+	char charValueTwo = 'a';
 
-
-	for (std::vector<char>::size_type i = 0; i < valueArray.size(); i++)
+	try
 	{
-		int result = easyfind(charArray, valueArray[i]);
-		if (result != -1)
-		{
-			std::cout << "Value \033[1m\033[38;5;211m" << valueArray[i] << "\033[0m found." << std::endl;
-		} else
-		{
-			std::cout << "Value \033[1m\033[38;5;211m" << valueArray[i] << "\033[0m not found." << std::endl;
-		}
+		std::vector<char>::iterator result = easyfind(charArray, charValueOne);
+		std::cout << "Value \033[1m\033[38;5;211m" << *result << "\033[0m found." << std::endl;
+
+		result = easyfind(charArray, charValueTwo);
+		std::cout << "Value \033[1m\033[38;5;211m" << *result << "\033[0m found." << std::endl;
+
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
 	}
 
 	std::cout << "\033[1m\033[38;5;183m[TEST 2]\033[0m" << std::endl;
@@ -39,14 +39,20 @@ int main()
 	lst.push_back(40);
 	lst.push_back(50);
 
-	int intValue = 30;
-	int result = easyfind(lst, intValue);
-	if (result != -1)
+	try
 	{
-		std::cout << "Value \033[1m\033[38;5;211m" << intValue << "\033[0m found." << std::endl;
-	} else
+		int intValue = 30;
+		std::list<int>::iterator result = easyfind(lst, intValue);
+		std::cout << "Value \033[1m\033[38;5;211m" << *result << "\033[0m found." << std::endl;
+		result = easyfind(lst, 50);
+		std::cout << "Value \033[1m\033[38;5;211m" << *result << "\033[0m found." << std::endl;
+		result = easyfind(lst, -1);
+		std::cout << "Value \033[make f1m\033[38;5;211m" << *result << "\033[0m found." << std::endl;
+
+	}
+	catch (const std::exception& e)
 	{
-		std::cout << "Value \033[1m\033[38;5;211m" << intValue << "\033[0m not found." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	return 0;

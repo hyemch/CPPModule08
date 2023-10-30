@@ -2,29 +2,31 @@
 #define EASYFIND_HPP
 
 #include <iostream>
+#include <algorithm>
+#include <exception>
 
-//template <typename T>
-//size_t	easyfind(T container, int value)
-//{
-//	for (size_t i = 0; i < container.size(); i++)
-//	{
-//		if (container[i] == value)
-//			return i;
-//	}
-//	return -1;
-//}
+class NotFoundValueException : public std::exception
+{
+public:
+	const char* what() const throw()
+	{
+		return ("Value not found.");
+	}
+};
 
 template <typename T>
-int	easyfind(T container, int value)
+typename T::iterator	easyfind(T container, int value)
 {
-	typename T::const_iterator it = container.begin();
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
 
-	for (;it != container.end(); it++)
+	if (it != container.end())
 	{
-		if (*it == value)
-			return 0;
+		return it;
 	}
-	return -1;
+	else
+	{
+		throw NotFoundValueException();
+	}
 }
 
 #endif
