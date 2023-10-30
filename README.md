@@ -11,7 +11,7 @@ Templated containers, iterators, algorithms
     - Algorithms (defined in header <algorithm>)
 - 또한, 가능한 많이 사용해야 한다. → 적절한 곳에 적용하기 위해 최선을 다할 것!
 - 그렇지 않으면, 코드가 예상대로 작동 하더라도 매우 나쁜 성적을 받게 될 것이다. 게으르지 마라.
-- 평소처럼 헤어파일에 templates를 정의할 수 있다.
+- 평소처럼 헤더파일에 templates를 정의할 수 있다.
 - 또는, 원한다면, 헤더 파일에 템플릿을 선언하고 그 구현을 .tpp파일에 작성할 수 있다.
 - 어떤 경우든, 헤더파일은 필수이고 .tpp 파일은 선택사항이다.
 
