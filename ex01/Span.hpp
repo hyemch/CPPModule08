@@ -26,7 +26,7 @@ public:
 	~Span();
 
 	void	addNumber(unsigned int N);
-//	void	shortestSpan();
+	size_t	shortestSpan();
 	size_t	longestSpan();
 
 	template<typename iterator_T>

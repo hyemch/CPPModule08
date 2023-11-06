@@ -32,14 +32,26 @@ size_t	Span::longestSpan()
 		- *std::min_element(numbers.begin(),numbers.end()));
 }
 
-//void	Span::shortestSpan()
-//{
-//	if (numbers.size() < 2)
-//		throw notFoundSpanException();
-//	else
-//		std::sort(numbers.begin(), numbers.end());
-//
-//}
+size_t	Span::shortestSpan()
+{
+	if (numbers.size() < 2)
+		throw notFoundSpanException();
+	else
+	{
+		std::sort(numbers.begin(), numbers.end());
+		size_t	shortestValue = numbers[1] - numbers[0];
+		for (size_t	i = 2; i < numbers.size(); i++)
+		{
+			size_t value = numbers[i] - numbers[i - 1];
+			if (value < shortestValue)
+			{
+				shortestValue = value;
+			}
+		}
+		return shortestValue;
+	}
+
+}
 
 const char* Span::spanFullException::what() const throw()
 {
