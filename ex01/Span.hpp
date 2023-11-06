@@ -41,7 +41,7 @@ private:
 	Span& operator=(const Span& other);
 
 	unsigned int		maxSize;
-	std::vector<int>(numbers);
+	std::vector<int>	numbers;
 };
 
 std::ostream& operator<<(std::ostream& os, const Span& span);

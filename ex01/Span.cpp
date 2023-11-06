@@ -50,7 +50,6 @@ size_t	Span::shortestSpan()
 		}
 		return shortestValue;
 	}
-
 }
 
 const char* Span::spanFullException::what() const throw()
